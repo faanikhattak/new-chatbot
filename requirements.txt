@@ -1,1 +1,36 @@
 
+# --- Core ---
+streamlit
+pandas
+numpy
+torch
+requests
+
+# --- LangChain ---
+langchain
+langchain-openai
+langchain-community
+
+# --- HuggingFace ---
+huggingface-hub
+sentence-transformers
+transformers
+
+# --- FAISS (vector store) ---
+faiss-cpu
+
+# --- Authentication & OAuth ---
+PyJWT
+authlib
+streamlit-authenticator
+
+# --- Document loaders ---
+python-docx
+unstructured
+pdfplumber
+
+# --- Utilities ---
+pydantic
+
+# Optional for deployment
+gunicorn
