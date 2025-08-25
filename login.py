@@ -25,7 +25,7 @@ GITHUB_USERINFO_URL = "https://api.github.com/user"
 
 
 def login_page():
-    st.markdown("<h1 style='text-align: center; color: black;'>🔐 Login to Chatbot</h1>", unsafe_allow_html=True)
+    
     # --- CSS Styling ---
     st.markdown(
         """
@@ -157,6 +157,7 @@ def login_page():
                 st.error("GitHub login failed. Try again.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
