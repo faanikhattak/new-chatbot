@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urlencode
 
 # --- PAGE SETTINGS ---
-st.set_page_config(page_title="Login Page", layout="centerd")
+st.set_page_config(page_title="Login Page", layout="centered")
 
 # --- OAUTH CONFIG (Google + GitHub) ---
 GOOGLE_CLIENT_ID = st.secrets["google_oauth"]["client_id"]
@@ -157,5 +157,6 @@ def login_page():
                 st.error("GitHub login failed. Try again.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
