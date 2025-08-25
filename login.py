@@ -5,7 +5,7 @@ from urllib.parse import urlencode
 # --- GOOGLE OAUTH CONFIG ---
 CLIENT_ID = st.secrets["google_oauth"]["client_id"]
 CLIENT_SECRET = st.secrets["google_oauth"]["client_secret"]
-REDIRECT_URI = "https://new-virsion-chatbot-faan-khan-khattak.streamlit.app"
+REDIRECT_URI = "https://new-virsion-chatbot-faan-khan-khattak.streamlit.app/"
 
 # Scopes
 SCOPE = "openid email profile"
@@ -73,3 +73,4 @@ def login_page():
             st.experimental_rerun()
         else:
             st.error("Login failed. Please try again.")
+
