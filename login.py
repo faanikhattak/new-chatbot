@@ -14,17 +14,66 @@ TOKEN_URL = "https://oauth2.googleapis.com/token"
 USER_INFO_URL = "https://www.googleapis.com/oauth2/v2/userinfo"
 
 # --- LOGIN FUNCTION ---
-def login_page():
-    st.title("🔐 Login to Chatbot")
-    st.markdown("Please log in with your **Google Account** to continue.")
+import streamlit as st
+from streamlit_oauth import OAuth2Component
+import os
 
-    # --- If user is already logged in ---
-    if "user" in st.session_state:
-        st.success(f"Welcome back, {st.session_state['user']['name']} 👋")
-        if st.button("Logout"):
-            st.session_state.pop("user", None)
-            st.rerun()
-        return
+# Enable wide layout
+st.set_page_config(page_title="Login Page", layout="centered")
+
+def login_page():
+    st.markdown("<h1 style='text-align: center; color: black;'>🔐 Login to Chatbot</h1>", unsafe_allow_html=True)
+    st.markdown(
+        """
+        <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+        .login-card {
+            background: white;
+            color: black;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            margin: auto;
+        }
+        .login-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        button {
+            background-color: #2575fc !important;
+            color: white !important;
+            border-radius: 10px;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    
+    st.markdown("<div class='login-title'>Welcome to Smart Chatbot</div>", unsafe_allow_html=True)
+    st.write("Sign in with your preferred method below:")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("🔑 Login with Google"):
+            st.success("Redirecting to Google login... (Implement OAuth)")
+
+    with col2:
+        if st.button("🐙 Login with GitHub"):
+            st.success("Redirecting to GitHub login... (Implement OAuth)")
+
+    st.markdown("</div>", unsafe_allow_html=True)
+
 
     # --- Generate Google Auth URL ---
     params = {
@@ -73,6 +122,7 @@ def login_page():
             st.rerun()
         else:
             st.error("Login failed. Please try again.")
+
 
 
 
