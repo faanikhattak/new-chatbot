@@ -75,7 +75,7 @@ def login_page():
         unsafe_allow_html=True
     )
 
-    st.markdown("<div class='login-card'>", unsafe_allow_html=True)
+    
     st.markdown("<div class='login-title'>🔐 Login to Chatbot</div>", unsafe_allow_html=True)
     st.markdown("<div class='login-subtitle'>Sign in with your preferred account</div>", unsafe_allow_html=True)
 
@@ -157,6 +157,7 @@ def login_page():
                 st.error("GitHub login failed. Try again.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
