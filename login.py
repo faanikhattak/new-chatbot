@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urlencode
 
 # --- PAGE SETTINGS ---
-st.set_page_config(page_title="Login Page", layout="wide")
+st.set_page_config(page_title="Login Page", layout="centerd")
 
 # --- OAUTH CONFIG (Google + GitHub) ---
 GOOGLE_CLIENT_ID = st.secrets["google_oauth"]["client_id"]
@@ -25,6 +25,7 @@ GITHUB_USERINFO_URL = "https://api.github.com/user"
 
 
 def login_page():
+    st.markdown("<h1 style='text-align: center; color: black;'>🔐 Login to Chatbot</h1>", unsafe_allow_html=True)
     # --- CSS Styling ---
     st.markdown(
         """
@@ -156,3 +157,4 @@ def login_page():
                 st.error("GitHub login failed. Try again.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
