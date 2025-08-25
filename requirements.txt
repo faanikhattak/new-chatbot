@@ -23,6 +23,8 @@ faiss-cpu
 PyJWT
 authlib
 streamlit-authenticator
+streamlit-oauth
+
 
 # --- Document loaders ---
 python-docx
