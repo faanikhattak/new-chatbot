@@ -41,7 +41,7 @@ def login_page():
     st.markdown(f"[![Login with Google](https://img.shields.io/badge/Login%20with%20Google-blue?logo=google)]({login_url})")
 
     # --- Get Auth Code from URL ---
-    query_params = st.experimental_get_query_params()
+    query_params = st.query_params()
     if "code" in query_params:
         code = query_params["code"][0]
 
@@ -70,8 +70,9 @@ def login_page():
                 "email": user_info.get("email", "No email")
             }
             st.success(f"Welcome, {st.session_state['user']['name']} 🎉")
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.error("Login failed. Please try again.")
+
 
 
