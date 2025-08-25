@@ -60,19 +60,19 @@ def login_page():
     )
 
     
-    st.markdown("<div class='login-title'>Welcome to Smart Chatbot</div>", unsafe_allow_html=True)
-    st.write("Sign in with your preferred method below:")
+    # st.markdown("<div class='login-title'>Welcome to Smart Chatbot</div>", unsafe_allow_html=True)
+    # st.write("Sign in with your preferred method below:")
 
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("🔑 Login with Google"):
-            st.success("Redirecting to Google login... (Implement OAuth)")
+    # col1, col2 = st.columns(2)
+    # with col1:
+    #     if st.button("🔑 Login with Google"):
+    #         st.success("Redirecting to Google login... (Implement OAuth)")
 
-    with col2:
-        if st.button("🐙 Login with GitHub"):
-            st.success("Redirecting to GitHub login... (Implement OAuth)")
+    # with col2:
+    #     if st.button("🐙 Login with GitHub"):
+    #         st.success("Redirecting to GitHub login... (Implement OAuth)")
 
-    st.markdown("</div>", unsafe_allow_html=True)
+    # st.markdown("</div>", unsafe_allow_html=True)
 
 
     # --- Generate Google Auth URL ---
@@ -122,6 +122,7 @@ def login_page():
             st.rerun()
         else:
             st.error("Login failed. Please try again.")
+
 
 
 
