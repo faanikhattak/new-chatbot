@@ -128,6 +128,8 @@ def login_page():
                 st.session_state["is_authenticated"] = True
                 st.session_state["user"] = {"name": user_info.get("name"), "email": user_info.get("email")}
                 st.success(f"Welcome, {st.session_state['user']['name']} 🎉")
+                # Clear query parameters to prevent re-using the expired code
+                st.experimental_set_query_params(code=None, state=None)
                 st.rerun()
             except Exception as e:
                 st.error(f"Google login failed. Error: {e}")
@@ -152,6 +154,8 @@ def login_page():
                     st.session_state["is_authenticated"] = True
                     st.session_state["user"] = {"name": user_info.get("login"), "email": user_info.get("email")}
                     st.success(f"Welcome, {st.session_state['user']['name']} 🎉")
+                    # Clear query parameters to prevent re-using the expired code
+                    st.experimental_set_query_params(code=None, state=None)
                     st.rerun()
                 else:
                     st.error("GitHub login failed. No access token received.")
@@ -173,10 +177,8 @@ else:
         st.session_state["is_authenticated"] = False
         if "user" in st.session_state:
             del st.session_state["user"]
+        st.experimental_set_query_params(code=None, state=None)
         st.rerun()
-
-
-
 
 
 
