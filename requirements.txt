@@ -1,4 +1,4 @@
-git+https://github.com/satya164/streamlit-oauth.git
+streamlit-google-auth
 
 # --- Core ---
 streamlit
