@@ -34,7 +34,7 @@ def login_page():
             background: linear-gradient(to right, #6a11cb, #2575fc);
         }
         .login-card {
-            background: white;
+            background: black;
             padding: 40px;
             border-radius: 20px;
             width: 450px;
@@ -157,4 +157,5 @@ def login_page():
                 st.error("GitHub login failed. Try again.")
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
