@@ -3,7 +3,9 @@ import requests
 from urllib.parse import urlencode, parse_qsl
 from authlib.integrations.requests_client import OAuth2Session
 import json
-
+import streamlit as st
+from urllib.parse import urlencode
+import requests
 # --- PAGE SETTINGS ---
 st.set_page_config(page_title="Login Page", layout="centered")
 
@@ -19,14 +21,14 @@ st.set_page_config(page_title="Login Page", layout="centered")
 # REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
 #[google_oauth]
-client_id = "139553575448-buecvcrqieq89l3jhvhrq7a8o0lkt26e.apps.googleusercontent.com"
-client_secret = "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"
-redirect_uri = "https://new-chatbot-faani.streamlit.app/"
+GOOGLE_CLIENT_ID= "139553575448-buecvcrqieq89l3jhvhrq7a8o0lkt26e.apps.googleusercontent.com"
+GOOGLE_CLIENT_SECRET= "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"
+
 
 #[github_oauth]
-client_id = "Ov23liYmL2IV9XYzi19E"
-client_secret = "1a115e96a5ff9dc0735abe76f9af7d836fa7a29e"
-redirect_uri = "https://new-chatbot-faani.streamlit.app/"
+ GITHUB_CLIENT_ID = "Ov23liYmL2IV9XYzi19E"
+GITHUB_CLIENT_SECRET= "1a115e96a5ff9dc0735abe76f9af7d836fa7a29e"
+REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
 
 
@@ -359,6 +361,7 @@ else:
 #                 st.error("GitHub login failed. Try again.")
 
 #     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
