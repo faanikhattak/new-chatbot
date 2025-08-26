@@ -20,20 +20,6 @@ st.set_page_config(page_title="Login Page", layout="centered")
 # # In a deployed app, make sure this is your app's public URL
 # REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
-#[google_oauth]
-GOOGLE_CLIENT_ID= "139553575448-buecvcrqieq89l3jhvhrq7a8o0lkt26e.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET= "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"
-
-
-#[github_oauth]
-GITHUB_CLIENT_ID = "Ov23liYmL2IV9XYzi19E"
-GITHUB_CLIENT_SECRET= "1a115e96a5ff9dc0735abe76f9af7d836fa7a29e"
-REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
-
-
-
-#[api_keys]
-HF_TOKEN = "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"
 
 # --- Endpoints ---
 GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
@@ -361,6 +347,7 @@ else:
 #                 st.error("GitHub login failed. Try again.")
 
 #     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
