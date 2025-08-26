@@ -9,15 +9,30 @@ st.set_page_config(page_title="Login Page", layout="centered")
 
 # --- OAUTH CONFIG (Google + GitHub) ---
 # Note: In a real app, these should be securely stored in st.secrets
-GOOGLE_CLIENT_ID = st.secrets.get("google_oauth", {}).get("client_id")
-GOOGLE_CLIENT_SECRET = st.secrets.get("google_oauth", {}).get("client_secret")
+# GOOGLE_CLIENT_ID = st.secrets.get("google_oauth", {}).get("client_id")
+# GOOGLE_CLIENT_SECRET = st.secrets.get("google_oauth", {}).get("client_secret")
 
-GITHUB_CLIENT_ID = st.secrets.get("github_oauth", {}).get("client_id")
-GITHUB_CLIENT_SECRET = st.secrets.get("github_oauth", {}).get("client_secret")
+# GITHUB_CLIENT_ID = st.secrets.get("github_oauth", {}).get("client_id")
+# GITHUB_CLIENT_SECRET = st.secrets.get("github_oauth", {}).get("client_secret")
 
-# In a deployed app, make sure this is your app's public URL
-REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
+# # In a deployed app, make sure this is your app's public URL
+# REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
+[google_oauth]
+client_id = "139553575448-buecvcrqieq89l3jhvhrq7a8o0lkt26e.apps.googleusercontent.com"
+client_secret = "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"
+redirect_uri = "https://new-chatbot-faani.streamlit.app/"
+
+[github_oauth]
+client_id = "Ov23liYmL2IV9XYzi19E"
+client_secret = "1a115e96a5ff9dc0735abe76f9af7d836fa7a29e"
+redirect_uri = "https://new-chatbot-faani.streamlit.app/"
+
+
+
+[api_keys]
+HF_TOKEN = "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"
+redirect_uri = "https://new-chatbot-faani.streamlit.app/"
 # --- Endpoints ---
 GOOGLE_AUTH_URL = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URL = "https://oauth2.googleapis.com/token"
@@ -344,6 +359,7 @@ else:
 #                 st.error("GitHub login failed. Try again.")
 
 #     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
