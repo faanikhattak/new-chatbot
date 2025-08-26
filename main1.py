@@ -8,6 +8,9 @@ from datetime import datetime
 import torch
 import pandas as pd
 from time import sleep
+import streamlit as st
+import login
+
 
 # LangChain Imports
 from langchain.vectorstores import FAISS
@@ -172,6 +175,20 @@ def load_documents(files):
         except Exception as e:
                 st.error(f"❌ Error loading {file.name}: {e}")
     return docs
+
+import streamlit as st
+import login
+
+# --- CHECK LOGIN STATUS ---
+if not st.session_state.get("is_authenticated", False):
+    login.login_page()
+    st.stop()
+else:
+    # --- THIS BLOCK ONLY RUNS IF AUTHENTICATED ---
+    st.title(f"Welcome {st.session_state['user_info'].get('name', '')} to AI Chatbot 🤖")
+    
+    # ... Rest of your application code goes here ...
+    # (e.g., sidebar_widgets(), chat display, etc.)
 
 # --- VECTOR STORE ---
 def build_vector_store(docs):
@@ -1766,6 +1783,7 @@ else:
 #     st.rerun()
 # else:
 #     st.info("📄 Please upload and process documents to retrieve the specific knowledge you need.")
+
 
 
 
