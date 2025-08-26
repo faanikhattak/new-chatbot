@@ -920,7 +920,7 @@ st.title(f"Welcome {st.session_state['user_info'].get('name', '')} to AI Chatbot
 # --- Your existing main.py code from here ---
 # Paste everything from your previous main.py below this login check
 # (e.g., sidebar_widgets(), load_documents(), build_vector_store(), get_llm(), chat input/output)
-
+import login
 import os
 import shutil
 import json
@@ -1368,5 +1368,6 @@ if prompt:
     st.rerun()
 else:
     st.info("📄 Please upload and process documents to retrieve the specific knowledge you need.")
+
 
 
