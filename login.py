@@ -9,11 +9,6 @@ import os
 st.set_page_config(page_title="Login Page", layout="centered")
 
 # --- OAUTH CONFIG ---
-# Your secrets should be configured in .streamlit/secrets.toml
-# GOOGLE_CLIENT_ID = st.secrets["google_oauth"]["client_id"]
-# GOOGLE_CLIENT_SECRET = st.secrets["google_oauth"]["client_secret"]
-# GITHUB_CLIENT_ID = st.secrets["github_oauth"]["client_id"]
-# GITHUB_CLIENT_SECRET = st.secrets["github_oauth"]["client_secret"]
 REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
 # --- Endpoints ---
@@ -27,12 +22,6 @@ GITHUB_USERINFO_URL = "https://api.github.com/user"
 
 
 def login_page():
-    # Check for existing authentication before displaying the login UI
-    if st.session_state.get("is_authenticated", False):
-        st.success("✅ Already logged in. Redirecting...")
-        st.experimental_set_query_params() # Ensure a clean URL
-        st.rerun()
-
     # --- CSS Styling ---
     st.markdown(
         """
@@ -72,7 +61,6 @@ def login_page():
     }
     github_login_url = f"{GITHUB_AUTH_URL}?{urlencode(github_params)}"
 
-    # Display buttons for OAuth login
     st.markdown(f"<a href='{google_login_url}' class='login-btn google-btn'>Login with Google</a>", unsafe_allow_html=True)
     st.markdown(f"<a href='{github_login_url}' class='login-btn github-btn'>Login with GitHub</a>", unsafe_allow_html=True)
     st.markdown("</div>", unsafe_allow_html=True)
@@ -81,6 +69,11 @@ def login_page():
     query_params = st.query_params
     
     if "code" in query_params and "state" in query_params:
+        # Check if the callback has already been processed in this session state
+        if st.session_state.get("auth_callback_processed", False):
+            st.warning("Authentication already processed. Please wait...")
+            st.rerun()
+
         code = query_params["code"][0]
         provider = query_params["state"][0]
         st.info("🔄 Authenticating...")
@@ -104,6 +97,7 @@ def login_page():
                 ).json()
                 st.session_state["is_authenticated"] = True
                 st.session_state["user_info"] = {"name": user_info.get("name"), "email": user_info.get("email")}
+                st.session_state["auth_callback_processed"] = True
                 st.experimental_set_query_params()
                 st.rerun()
 
@@ -123,7 +117,6 @@ def login_page():
                     headers={"Accept": "application/json"}
                 )
                 access_token = token_response.get("access_token")
-
                 if access_token:
                     user_info = requests.get(
                         GITHUB_USERINFO_URL,
@@ -131,6 +124,7 @@ def login_page():
                     ).json()
                     st.session_state["is_authenticated"] = True
                     st.session_state["user_info"] = {"name": user_info.get("login"), "email": user_info.get("email")}
+                    st.session_state["auth_callback_processed"] = True
                     st.experimental_set_query_params()
                     st.rerun()
                 else:
@@ -147,9 +141,6 @@ if not st.session_state["is_authenticated"]:
 else:
     # This part is handled by the main1.py script
     pass
-
-
-
 # import streamlit as st
 # import requests
 # from urllib.parse import urlencode, parse_qsl
@@ -323,4 +314,5 @@ else:
 # else:
 #     # This block now belongs to main1.py
 #     pass
+
 
