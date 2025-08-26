@@ -3,7 +3,7 @@ import requests
 from urllib.parse import urlencode, parse_qsl
 from authlib.integrations.requests_client import OAuth2Session
 import json
-import login
+
 # --- PAGE SETTINGS ---
 st.set_page_config(page_title="Login Page", layout="centered")
 
@@ -18,19 +18,19 @@ st.set_page_config(page_title="Login Page", layout="centered")
 # # In a deployed app, make sure this is your app's public URL
 # REDIRECT_URI = "https://new-chatbot-faani.streamlit.app/"
 
-[google_oauth]
+#[google_oauth]
 client_id = "139553575448-buecvcrqieq89l3jhvhrq7a8o0lkt26e.apps.googleusercontent.com"
 client_secret = "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"
 redirect_uri = "https://new-chatbot-faani.streamlit.app/"
 
-[github_oauth]
+#[github_oauth]
 client_id = "Ov23liYmL2IV9XYzi19E"
 client_secret = "1a115e96a5ff9dc0735abe76f9af7d836fa7a29e"
 redirect_uri = "https://new-chatbot-faani.streamlit.app/"
 
 
 
-[api_keys]
+#[api_keys]
 HF_TOKEN = "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"
 redirect_uri = "https://new-chatbot-faani.streamlit.app/"
 # --- Endpoints ---
@@ -359,6 +359,7 @@ else:
 #                 st.error("GitHub login failed. Try again.")
 
 #     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
