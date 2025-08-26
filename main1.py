@@ -1368,7 +1368,7 @@ if prompt:
     st.rerun()
 else:
     st.info("📄 Please upload and process documents to retrieve the specific knowledge you need.")
-    login_page()
+
 
 
 
